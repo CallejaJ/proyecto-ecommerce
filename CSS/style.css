@@ -5,6 +5,8 @@ que he copiado de Google Fonts.*/
 body{
     color: #222;
     font-family: 'Inter', sans-serif;
+    margin: 0;
+    font-size: 16px;
 }
 
 /* Tipografía y creamos una clase que amplía la escala de los encabezados*/
@@ -43,18 +45,82 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Poner un color a todos los enlaces de la web.*/
 
-a { color: #004bec; 
+a {
 
+/* color: #004bec; */
 }
 
-/* Crear la clase “m color” en el CSS y ponle el mismo color que a los enlaces*/
+/* Crear la clase “m-color” en el CSS y ponle el mismo color que a los enlaces*/
 
 a, 
 .m-color{
-    color: #004bec;
+    /* color: #004bec; */
 }
 
 .rating{
     color:#cacaca
 }
+
+/* Añade una clase al grupo de precio y consigue que el icono de moneda 
+se coloque junto al número de precio usando display:inline*/
+
+.price {
+  display: inline;
+}
+
+/* En la página de carrito, consigue que los botones de los productos
+recomendados ocupen el 100% del ancho de la caja usando display:block.
+Ojo, solo para estos botones, no para todos.*/
+
+.recomendados {
+  display: block;
+}
+
+
+/* Consigue que el número de productos del botón de carrito en el header
+quede flotando en la esquina superior derecha del botón, usando position
+relative en el botón y position absolute en el número.*/
+
+#comprar{
+  display: inline-block;
+  position: relative;
+}
+#comprar .unidades{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+/* Components*/
+
+/* Button*/
+
+/* Consigue que todos los botones, por defecto, tengan display:inline-block y
+asegúrate que el proceso de compra del carrito se ve como en el diseño.*/
+
+.button {
+  display: inline-block;
+  /* text-decoration: none; */
+}
+
+/* Menu */
+
+.menu li{
+  display: inline block;
+}
+
+
+
+
+/* Nav */
+
+
+
+/* Página productos */
+
+
+
+/* Helper */
+
+
 
