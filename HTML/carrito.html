@@ -17,34 +17,28 @@
     <header>
         <a href="../HTML/home.html"> <img src="../assets/images/logo.jpg" width="100"></a>
         <h4>Proyecto 3DREAMS </h4>
-        <input type="search" name="search" placeholder="Buscar productos" />
-        <a href="carrito.html" class="button" id="comprar">Carrito<span class="unidades">1</span></a>
+        <a href="#"class="button">Carrito</a>
+        <a href="#"class="button">Forma de pago</a>
+        <a href="#"class="button">Finalizar pedido</a>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="..//HTML/producto.html">Productos</a></li>
-            <li><a href="..//HTML/quienesomos.html">Quienes somos</a></li>
-            <li><a href="../HTML/garantia.html">Garantía</a></li>
-            <li><a href="..//HTML/envios.html">Envíos</a></li>
-            <li><a href="../HTML/politicadeprivacidad.html">Política de privacidad</a></li>
-        </ul>
-
-        <ul>
-            <li><a href="#">Mi pedido</a></li>
-            <li><a href="..//HTML/login.html">Cerrar sesión</a></li>
-        </ul>
-    </nav>
 
 <main>
     <h1>Mi carrito</h1>
-    <a href="..//HTML/home.html">Seguir comprando</a>
+    <a href="..//HTML/home.html" class="button">Seguir comprando</a>
 
     <section>
         <div class="card">
             <img src="../assets/images/maqueta1.jpg" alt="maqueta1" width="300"/>
         <h3>Maqueta 1</h3>
-        <h4>1790,00 €</h4>
+        <p class="price">1790,00<i class="bi bi-currency-euro m-color"></i></p>
+
+            <div class="rating">
+                <i class="bi bi-star-fill m-color"></i>
+                <i class="bi bi-star-fill m-color" ></i>            
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>            
+            </div>
         <input type="number" name="cantidad" min="o" max="10" value="1"/>
         <button>Eliminar</button>
     </div>
@@ -52,7 +46,16 @@
     <div class="card">
         <img src="../assets/images/maqueta2.jpg" alt="maqueta2" width="300"/>
         <h3>Maqueta 2</h3>
-        <h4>1650,00 €</h4>
+        <p class="price">1650,00<i class="bi bi-currency-euro m-color"></i></p>
+
+            <div class="rating">
+                <i class="bi bi-star-fill m-color"></i>
+                <i class="bi bi-star-fill m-color" ></i>            
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>            
+    
+            </div>
         <input type="number" name="cantidad" min="o" max="10" value="1"/>
         <button>Eliminar</button>
     </div>
@@ -60,7 +63,16 @@
     <div class="card">
         <img src="../assets/images/maqueta3.jpg" alt="maqueta3" width="300"/>
         <h3>Maqueta 3</h3>
-        <h4>1975,00 €</h4>
+        <p class="price">1975,00<i class="bi bi-currency-euro m-color"></i></p>
+
+            <div class="rating">
+                <i class="bi bi-star-fill m-color"></i>
+                <i class="bi bi-star-fill m-color" ></i>            
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>            
+    
+            </div>
         <input type="number" name="cantidad" min="o" max="10" value="1"/>
         <button>Eliminar</button>
     </div>
@@ -68,10 +80,10 @@
     </section>
 
     <section>
-        <H3>Resumen de pedido</H3>
+        <h3>Resumen de pedido</h3>
         <p>Continua con el proceso de compra para conectar tu monedero virtual o tarjeta bancaria.</p>
-        <H2>5415,00 €</H2>
         <img src="../assets/images/maqueta3.jpg" alt="maqueta3" width="300"/>
+        <p class="price">5415,00<i class="bi bi-currency-euro m-color"></i></p>
         <a href="../HTML/formasdepago.html">Proceder al pago</a>
     </section>
     
@@ -84,11 +96,17 @@
     <div class="card">
         <img src="../assets/images/maqueta4.jpg" alt="maqueta4" width="300"/>
         <h4>Maqueta 4</h4>
-        <p>1650,00 € euros</p>
+        <p class="price">1650,00<i class="bi bi-currency-euro m-color"></i></p>
+        <div class="rating">
+            <i class="bi bi-star-fill m-color"></i>
+            <i class="bi bi-star-fill m-color" ></i>            
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>            
+        </div>
         <button type="button" class="recomendados">Añadir al carrito</button>
-        <a href="../HTML/producto.html">Ver detalles</a>
+        <a href="../HTML/producto.html"class="button">Ver detalles</a>
     </div>
-
 </main>
 
 <section>

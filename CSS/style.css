@@ -1,6 +1,7 @@
 /* Poner todos los textos de la web en color #222, 
-poniendo estilo a la etiqueta <html> o body, le coloco el estilo de fuente
-que he copiado de Google Fonts.*/
+poniendo estilo a la etiqueta <html> o <body>, 
+le coloco el estilo de fuente que he copiado de Google Fonts. 
+Establece en 16px el tamaño del texto base de toda la web.*/
 
 body{
     color: #222;
@@ -9,7 +10,25 @@ body{
     font-size: 16px;
 }
 
-/* Tipografía y creamos una clase que amplía la escala de los encabezados*/
+/* Tipografía */
+
+/* Edita la clase “btn” para que los enlaces no tengan texto subrayado
+ y tengan el texto en negrita.*/
+
+ a.button{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Genera una escala tipográfica, para ello:
+❏ Indica una proporción de 1.333
+❏ Un texto base de 16px
+❏ 6 tamaños por encima del texto base
+❏ 1 tamaño por debajo del texto base /*
+  
+/* Añade clases inteligentes a la declaración de tamaños de título 
+para reutilizar ese tamaño de texto y poder aumentar o reducir elementos HTML 
+sin cambiar de etiqueta.*/
 
 p {margin-bottom: 1rem;}
 
@@ -31,13 +50,14 @@ h4, .h4 {font-size: 1.563rem;}
 
 h5, .h5 {font-size: 1.25rem;}
 
+/* Traslada los tamaños superiores a cada uno de los tipos de título 
+por orden y el tamaño inferior a la etiqueta small. */
+
 small, .text_small {font-size: 0.8rem;}
 
 
-
 /*Poner todos los títulos de la web en color #444, 
-poniendo estilo a los <h1>, <h2>, etc… 
-A todos al mismo tiempo!*/
+poniendo estilo a los <h1>, <h2>, etc… A todos al mismo tiempo!*/
 
 h1, h2, h3, h4, h5, h6 {
     color: #444;
@@ -46,15 +66,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Poner un color a todos los enlaces de la web.*/
 
 a {
-
-/* color: #004bec; */
+ color: #004bec; 
 }
 
 /* Crear la clase “m-color” en el CSS y ponle el mismo color que a los enlaces*/
 
 a, 
 .m-color{
-    /* color: #004bec; */
+    color: #004bec; 
 }
 
 .rating{
@@ -84,29 +103,39 @@ relative en el botón y position absolute en el número.*/
 #comprar{
   display: inline-block;
   position: relative;
+  border: 1px dashed grey;
 }
-#comprar .unidades{
+#comprar span{
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -12px;
+  right: -12px;
+  border: 1px dashed grey;
 }
 
-/* Components*/
+/* Components */
 
-/* Button*/
+/* Button */
+
+/*En la página de carrito, consigue que los botones de los productos
+recomendados ocupen el 100% del ancho de la caja usando display:block.
+Ojo, solo para estos botones, no para todos*/
+
+.recomendados{
+  display: block;
+}
 
 /* Consigue que todos los botones, por defecto, tengan display:inline-block y
 asegúrate que el proceso de compra del carrito se ve como en el diseño.*/
 
 .button {
   display: inline-block;
-  /* text-decoration: none; */
 }
+
 
 /* Menu */
 
 .menu li{
-  display: inline block;
+  display: inline-block;
 }
 
 
