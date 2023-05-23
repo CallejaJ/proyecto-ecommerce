@@ -10,10 +10,18 @@
     --hue: 220.8;
     --principal: hsl(var(--hue) 91% 50% / 1);
     --secundario: hsl(var(--hue) 71% 70% / 1);
-    --resalto: ;
+    --resalto: hsl(calc(var(--hue) - 180)91% 50% / 1);
     --negro: hsl(var(--hue) 21% 20% / 1);
     --blanco: hsl(var(--hue) 21% 98% / 1);
     --gris: hsl(var(--hue) 21% 80% / 1);
+    --error: hsl(7deg 91% 50% / 1)
+}
+
+/* ❏ Para evitar que se redimensione el ancho 
+ejecutamos el box-sizing.*/
+
+*{
+  box-sizing: border-box;
 }
 
 
@@ -34,8 +42,19 @@ body{
     font-size: 16px;
 }
 
+body.dark{
+  --negro: hsl(var(--hue) 21% 98% / 1);
+  --blanco: hsl(var(--hue)21% 20% / 1);
+}
+
 img{
     max-width: 100%;
+}
+
+/* Colores */
+
+.main-color{
+  color: var(--principal);
 }
 
 /* Tipografía */
@@ -88,10 +107,51 @@ small, .text_small {font-size: 0.8rem;}
 */
 
 a {
- color:var(--principal); 
+  color:var(--principal); 
 }
 
 /* Header */
+
+header{
+  background-color: var(--principal);
+}
+
+header .main-color{
+  color: var(--blanco);
+}
+
+header .container{
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.logo{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.logo img{
+  width: 40px;
+  height: 40px;
+  max-width: inherit;
+}
+
+.logo h4{
+  margin: 0;
+}
+
+.buscador-header{
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.buscador-header input{
+  width: 100%;
+}
 
 
 /* 
@@ -134,33 +194,13 @@ relative en el botón y position absolute en el número.
 /* Botones */
 
 /* 
-❏ Editar la clase “button” para que los enlaces no tengan texto subrayado
- y tengan el texto en negrita.
- */
-
- a.button{
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/*
-❏ En la página de carrito, consigue que los botones de los productos
-recomendados ocupen el 100% del ancho de la caja usando display:block.
-Ojo, solo para estos botones, no para todos
-*/
-
-.recomendados{
-  display: block;
-}
-
-/* 
 ❏ Consigue que todos los botones, por defecto, tengan display:inline-block y
 asegúrate que el proceso de compra del carrito se ve como en el diseño.
 */
 
 .button {
   display: inline-block;
-  text-decoration:none ;
+  text-decoration:none;
   padding: 16px 24px;
   border: 2px solid var(--principal);
   border-radius: 8px;
@@ -170,12 +210,63 @@ asegúrate que el proceso de compra del carrito se ve como en el diseño.
   background: var(--principal);
   text-align: center;
   cursor: pointer;
+  transition: all 0.3s;
+  }
+
+  .button:hover{
+    background-color: transparent;
+    color:var(--principal);
   }
 
   .button-secundario{
     background: var(--secundario);
     border-color: var(--secundario);
   }
+
+  .button-resalto:hover{
+    color: var(--resalto);
+  }
+
+/* Input */
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap: 16px;
+}
+
+input{
+  padding: 16px 24px;
+  border: 2px solid var(--gris);
+  outline: var(--gris);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group .error{
+  display: none;
+  color: var(--error);
+}
+
+.input-group.has-error label{
+  color: var(--error);
+}
+
+.input-group.has-error input{
+border-color: var(--error);
+}
+
+.input-group.has-error .error{
+  display: block;
+}
+
 
 /* Menu */
 
@@ -187,6 +278,10 @@ asegúrate que el proceso de compra del carrito se ve como en el diseño.
 
   .menu li{
   display: inline-block;
+  }
+
+  .menu a{
+    text-decoration: none;
   }
 
 /* Página productos */
@@ -229,6 +324,10 @@ asegúrate que el proceso de compra del carrito se ve como en el diseño.
   color: var(--gris);
 }
 
+.card-actions{
+  gap: 16px;
+}
+
 .card-actions .añadir{
   width: 100%;
 }
@@ -242,7 +341,29 @@ se coloque junto al número de precio usando display:inline
   display: inline;
 }
 
-/* Nav */
+/* Caja */
+
+.caja{
+  padding: 40px;
+  border: 2px solid var(--gris);
+  border-radius: 32px;
+}
+
+.caja h3{
+  margin: 0;
+}
+
+.caja.destacado{
+  border-color: var(--principal);
+}
+
+/* Navigation */
+
+#navegacion{
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
 
 #navegacion .col-izq,
 #navegacion .col-der{
@@ -251,7 +372,7 @@ se coloque junto al número de precio usando display:inline
 }
 
 #navegacion .col-der .menu{
-    text-align: right;
+  text-align: right;
 }
 #navegacion .col-izq .menu{
   text-align: left;
@@ -262,11 +383,38 @@ se coloque junto al número de precio usando display:inline
 
 .container{
   max-width: 992px;
+  padding: 0 16px;
   margin: 0 auto;
 }
 
-/* Colores */
+/* Login */
 
-.main-color{
-  color: var(--principal);
+main.login{
+  display: flex;
+  gap: 24px;
+}
+
+main.login .caja{
+  width: 100%;
+}
+
+/* Responsive */
+
+.jumbotron{
+  padding: 160px 0;
+  background-image: url(../assets/images/logo\ grey.png);
+  background-size: cover;
+  background-position: top center;
+  background-color: var(--gris);
+  color: var(--blanco);
+}
+
+.jumbotron h1{
+  color: var(--blanco)
+}
+
+@media only screen and(max-width:768px){
+  main-login{
+    flex-direction: column;
+  }
 }
