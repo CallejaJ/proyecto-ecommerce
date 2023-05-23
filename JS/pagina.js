@@ -1,6 +1,6 @@
 function inicializar(){
     console.log("onload se ha llamado");
-const divCard = document.getElementById("card")
+const divCard = document.getElementById("tarjetas")
 
 for(const item of productos){
     divCard.innerHTML += `
@@ -78,6 +78,6 @@ function login(){
       }
       else if(email === "koke@gmail.com" && password !== "1234"){
         console.log("usuario no valido");
-        divContainer.innerHTML = `<p style="color:red;">Conttraseña no válida.</p>`
+        divContainer.innerHTML = `<p style="color:red;">Contraseña no válida.</p>`
       }
   }
