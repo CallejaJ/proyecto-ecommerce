@@ -1,21 +1,6 @@
 function init(){
     console.log("onload se ha llamado");
 
-    const menuIzq = new Menu1([
-        {url: "producto.html", label: "Productos"},
-        {url: "quienesomos.html", label: "Que hacemos"},
-        {url: "garantia.html", label: "Garantía"},
-        ]);
-
-    const menuDcha = new Menu2([
-        {url: "carrito.html", label: "Mi pedido"},
-        {url: "login.html", label: "Cerrar sesión"},
-    ])
-
-    menuIzq.render();
-    menuDcha.render();
-}
-
 function MenuIzq(links){
     this.links = links;
     this.render = function(){
