@@ -4,9 +4,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../assets/images/favicon-16x16.png"/>
+            <link rel="icon" type="image/x-icon" href="../assets/images/favicon-16x16.png"/>
+            <!-- Mi estilo -->
             <link rel="stylesheet" href="../CSS/style.css">  
+            <!-- Iconos de bootstrap -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">        
+            <!-- Fuentes de Google -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -15,18 +18,34 @@
 <body>
 
     <header>
-        <a href="../HTML/home.html"> <img src="../assets/images/logo.jpg" width="100"></a>
-        <h4>Proyecto 3DREAMS </h4>
-        <a href="#"class="button">Carrito</a>
-        <a href="#"class="button">Forma de pago</a>
-        <a href="#"class="button">Finalizar pedido</a>
+        <div class="container">
+        <a href="../HTML/index.html"> <img src="../assets/images/logo sin fondo.png" width="100"></a>
+        <h4 class="main-color">3DREAMS</h4>
+        </div>
     </header>
 
-<main>
-    <h1>Mi carrito</h1>
-    <a href="..//HTML/home.html" class="button">Seguir comprando</a>
+    <nav class="container" id="navegacion">
+        <div class="col-izq">
+        <ul class="menu">
+            <li><a href="..//HTML/finalizarcompra.html">Finalizar compra</a></li>
+            <li><a href="..//HTML/formasdepago.html">Formas de pago</a></li>
+            <li><a href="../HTML/garantia.html">Garantía</a></li>
+            <li><a href="..//HTML/envios.html">Envíos</a></li>
+        </ul>
+         </div>
+        <div class="col-der">
+        <ul class="menu">
+            <li><a href="../HTML/carrito.html">Mi pedido</a></li>
+            <li><a href="..//HTML/login.html">Cerrar sesión</a></li>
+        </ul>
+    </div>
+    </nav>
 
-    <section>
+<main class="container">
+    <h1>Mi carrito</h1>
+    <a href="..//HTML/index.html" class="button">Seguir comprando</a>
+
+    <section class="container">
         <div class="card">
             <img src="../assets/images/maqueta1.jpg" alt="maqueta1" width="300"/>
         <h3>Maqueta 1</h3>
@@ -79,7 +98,7 @@
 
     </section>
 
-    <section>
+    <section class="container">
         <h3>Resumen de pedido</h3>
         <p>Continua con el proceso de compra para conectar tu monedero virtual o tarjeta bancaria.</p>
         <img src="../assets/images/maqueta3.jpg" alt="maqueta3" width="300"/>
@@ -88,7 +107,7 @@
     </section>
     
     
-    <div>
+    <div class="container">
         <h5>Productos relacionados</h5>
         <p>3 usuarios están visitando</p>
     </div>
@@ -109,7 +128,7 @@
     </div>
 </main>
 
-<section>
+<section class="container">
 
     <div>
         <img src="../assets/images//pago seguro.png" width="40"/>
@@ -145,7 +164,7 @@
 
 </section>
 
-<footer>
+<footer class="container">
 
     <div>
         <img src="../assets/images/logo.jpg" alt="logo" width="50px" />
