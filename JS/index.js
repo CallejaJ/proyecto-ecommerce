@@ -23,7 +23,7 @@ function MenuIzq(links){
         for(const link of this.links){
             menuIzqDiv.innerHTML += 
             `<ul class="menu">
-            <li><a href='${link.url}'>${label}</a></li>
+            <li><a href='${link.url}'>${link.label}</a></li>
             </ul>`
         
         }
@@ -37,7 +37,7 @@ function MenuDcha(links){
         for(const link of this.links){
             menuDchaDiv.innerHTML +=
             `<ul class="menu">
-            <li><a href='${link.url}'>${label}</a></li>
+            <li><a href='${link.url}'>${link.label}</a></li>
             </ul>`
         }
     }
