@@ -19,14 +19,14 @@ function inicializar(){
 function MenuIzq(links){
     this.links = links;
     this.render = function(){
+
         let menuIzqDiv = document.getElementById("menuIzq");
+        menuIzqDiv.innerHTML = "<ul>";
         for(const link of this.links){
             menuIzqDiv.innerHTML += 
-            `<ul class="menu">
-            <li><a href='${link.url}'>${link.label}</a></li>
-            </ul>`
-        
+            `<li class="menu"><a href='${link.url}'>${link.label}</a></li> `
         }
+        menuIzqDiv.innerHTML += "</ul>";
     }
 };
 
