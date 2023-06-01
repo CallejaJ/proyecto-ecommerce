@@ -1,43 +1,40 @@
 function inicializar(){
     console.log("onload se ha llamado");
 
-    const menuIzq = new MenuIzq([
+    const menu = new Menu([
         {url: "producto.html", label: "Productos"},
         {url: "quienesomos.html", label: "Que hacemos"},
         {url: "garantia.html", label: "Garantía"},
-        ]);
-
-    const menuDcha = new MenuDcha([
-        {url: "carrito.html", label: "Mi pedido"},
+        {url: "#", label: "Mi pedido"},
         {url: "login.html", label: "Cerrar sesión"},
     ])
 
-    menuIzq.render();
-    menuDcha.render();
+    menu.render();
 }
 
-function MenuIzq(links){
+function Menu(links){
     this.links = links;
     this.render = function(){
 
-        let menuIzqDiv = document.getElementById("menuIzq");
-        menuIzqDiv.innerHTML = "<ul>";
-        for(const link of this.links){
-            menuIzqDiv.innerHTML += 
-            `<li class="menu"><a href='${link.url}'>${link.label}</a></li> `
-        }
+        let menuDiv = document.getElementById("menu");
+            menuDiv.innerHTML = ""
+            menuDiv.innerHTML = `
+            <div class="col-izq">
+                <ul class="menu">
+                    <li><a href="..//HTML/producto.html">Productos</a></li>
+                    <li><a href="..//HTML/quienesomos.html">Quienes somos</a></li>
+                    <li><a href="../HTML/garantia.html">Garantía</a></li>
+                    </ul>
+            </div>
+            
+            <div class="col-der">
+                <ul class="menu">
+                    <li><a href="#">Mi pedido</a></li>
+                    <li><a href="..//HTML/login.html">Cerrar sesión</a></li>
+                </ul>
+            </div>`
+        
     }
 };
 
-function MenuDcha(links){
-    this.links = links;
-    this.render = function(){
-        let menuDchaDiv = document.getElementById("menuDcha");
-        for(const link of this.links){
-            menuDchaDiv.innerHTML +=
-            `<ul class="menu">
-            <li><a href='${link.url}'>${link.label}</a></li>
-            </ul>`
-        }
-    }
-};
+
