@@ -26,7 +26,6 @@ function MenuIzq(links){
             menuIzqDiv.innerHTML += 
             `<li class="menu"><a href='${link.url}'>${link.label}</a></li> `
         }
-        menuIzqDiv.innerHTML += "</ul>";
     }
 };
 
