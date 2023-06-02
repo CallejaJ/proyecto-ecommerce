@@ -26,7 +26,6 @@ function Menu(links){
                     <li><a href="../HTML/garantia.html">Garantía</a></li>
                     </ul>
             </div>
-            
             <div class="col-der">
                 <ul class="menu">
                     <li><a href="#">Mi pedido</a></li>

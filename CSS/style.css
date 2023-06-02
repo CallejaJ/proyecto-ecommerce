@@ -360,7 +360,7 @@ se coloque junto al número de precio usando display:inline
 /* Navigation */
 
 #navegacion{
-  display: flex;
+  display: inherit;
   justify-content: space-between;
   padding: 16px;
 }
