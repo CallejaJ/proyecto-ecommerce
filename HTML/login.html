@@ -15,13 +15,13 @@
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
         <title>3DREAMS Login</title>
     </head>
-    
-    <body>
+
+    <body onload="inicializar()">
     
         <header>
             <div class="container">
                 <a href="../HTML/index.html"> <img src="../assets/images/logo sin fondo.png" width="100"></a>
-                <h4>3DREAMS</h4>
+                <h4 class="main-color">3DREAMS</h4>
                 <input type="search" name="search" placeholder="Buscar productos" />
                 <a href="carrito.html" class="button" id="comprar">Carrito<span>1</span>
                 </a>
@@ -29,22 +29,8 @@
         </header>
     
         <nav class="container" id="navegacion">
-            <div class="col-izq">
-                <ul class="menu">
-                    <li><a href="..//HTML/producto.html">Productos</a></li>
-                    <li><a href="..//HTML/quienesomos.html">Quienes somos</a></li>
-                    <li><a href="../HTML/garantia.html">Garantía</a></li>
-                    <li><a href="..//HTML/envios.html">Envíos</a></li>
-                    <li><a href="../#">Postventa</a></li>
-                </ul>
-            </div>
-            
-            <div class="col-der">
-                <ul class="menu">
-                    <li><a href="#">Mi pedido</a></li>
-                    <li><a href="..//HTML/login.html">Cerrar sesión</a></li>
-                </ul>
-            </div>
+        <div id="menu">
+        </div>
         </nav>
 
     <main class = "container">
@@ -158,6 +144,6 @@
         </div>
     
     </footer>
-    <script src="../JS/pagina.js"></script>
+    <script src="../JS/login.js"></script>
     </body>
     </html>

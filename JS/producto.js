@@ -1,8 +1,41 @@
-function inicializar(){
-    console.log("onload se ha llamado");
-const divCard = document.getElementById("tarjetas")
+function inicializar() {
+  console.log("onload se ha llamado");
 
-for(const item of productos){
+  const menu = new Menu([
+    { url: "producto.html", label: "Productos" },
+    { url: "quienesomos.html", label: "Que hacemos" },
+    { url: "garantia.html", label: "Garantía" },
+    { url: "#", label: "Mi pedido" },
+    { url: "login.html", label: "Cerrar sesión" },
+  ]);
+
+  menu.render();
+}
+
+function Menu(links) {
+  this.links = links;
+  this.render = function () {
+    let menuDiv = document.getElementById("menu");
+    menuDiv.innerHTML = "";
+    menuDiv.innerHTML = `
+                <div class="col-izq">
+                    <ul class="menu">
+                        <li><a href="..//HTML/producto.html">Productos</a></li>
+                        <li><a href="..//HTML/quienesomos.html">Quienes somos</a></li>
+                        <li><a href="../HTML/garantia.html">Garantía</a></li>
+                        </ul>
+                </div>
+                <div class="col-der">
+                    <ul class="menu">
+                        <li><a href="#">Mi pedido</a></li>
+                        <li><a href="..//HTML/login.html">Cerrar sesión</a></li>
+                    </ul>
+                </div>`;
+  };
+
+  const divCard = document.getElementById("tarjetas");
+
+  for (const item of productos) {
     divCard.innerHTML += `
 
     <div class="card">
@@ -30,34 +63,32 @@ for(const item of productos){
                         <a href="../HTML/producto.html"class="button button-secundario">Ver</a>    
                         </div>
         
-            </div> `
-        }
-
+            </div> `;
+  }
 }
 
 const productos = [
-    {
-        imagen: "../assets/images/maqueta1.jpg",
-        nombre: "Maqueta 1",
-        precio: 1790.00,
-        descripcion1: "Maqueta de 6 habitaciones 2 niveles 2 plazas de garaje",
-        descripcion2: "Esta maqueta es personalizable",
-    },
+  {
+    imagen: "../assets/images/maqueta1.jpg",
+    nombre: "Maqueta 1",
+    precio: 1790.0,
+    descripcion1: "Maqueta de 6 habitaciones 2 niveles 2 plazas de garaje",
+    descripcion2: "Esta maqueta es personalizable",
+  },
 
-    {
-        imagen: "../assets/images/maqueta2.jpg",
-        nombre: "Maqueta 2",
-        precio: 1850.00,
-        descripcion1: "Maqueta de 4 habitaciones 2 niveles 1 plaza de garaje",
-        descripcion2: "Esta maqueta es personalizable",
-    },
+  {
+    imagen: "../assets/images/maqueta2.jpg",
+    nombre: "Maqueta 2",
+    precio: 1850.0,
+    descripcion1: "Maqueta de 4 habitaciones 2 niveles 1 plaza de garaje",
+    descripcion2: "Esta maqueta es personalizable",
+  },
 
-    {
-        imagen: "../assets/images/maqueta1.jpg",
-        nombre: "Maqueta 3",
-        precio: 1760.00,
-        descripcion1: "Maqueta de 3 habitaciones 2 niveles 2 plazas de garaje",
-        descripcion2: "Esta maqueta es personalizable",
-    }
-]
-
+  {
+    imagen: "../assets/images/maqueta1.jpg",
+    nombre: "Maqueta 3",
+    precio: 1760.0,
+    descripcion1: "Maqueta de 3 habitaciones 2 niveles 2 plazas de garaje",
+    descripcion2: "Esta maqueta es personalizable",
+  },
+];
