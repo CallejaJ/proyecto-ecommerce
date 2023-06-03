@@ -4,43 +4,36 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../assets/images/favicon-16x16.png"/>
+            <link rel="icon" type="image/x-icon" href="../assets/images/favicon-16x16.png"/>
+            <!-- Mi estilo -->
             <link rel="stylesheet" href="../CSS/style.css">  
+            <!-- Iconos de bootstrap -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">        
+            <!-- Fuentes de Google -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>3DREAMS Garantía</title>
+        <title>3DREAMS Producto</title>
     </head>
     
-    <body>
+    <body onload="inicializar()">
     
         <header>
-            <a href="../HTML/index.html"> <img src="../assets/images/logo.jpg" width="100"></a>
-            <h4>Proyecto 3DREAMS </h4>
-            <input type="search" name="search" placeholder="Buscar productos" />
-            <a href="carrito.html" class="button" id="comprar">Carrito<span>1</span></a>
+            <div class="container">
+                <a href="../HTML/index.html"> <img src="../assets/images/logo sin fondo.png" width="100"></a>
+                <h4 class="main-color">3DREAMS</h4>
+                <input type="search" name="search" placeholder="Buscar productos" />
+                <a href="carrito.html" class="button" id="comprar">Carrito<span>1</span>
+                </a>
+            </div>
         </header>
     
         <nav class="container" id="navegacion">
-            <div class="col-izq">
-            <ul class="menu">
-                <li><a href="..//HTML/producto.html"class="button">Productos</a></li>
-                <li><a href="..//HTML/quienesomos.html"class="button">Quienes somos</a></li>
-                <li><a href="../HTML/garantia.html"class="button">Garantía</a></li>
-                <li><a href="..//HTML/envios.html"class="button">Envíos</a></li>
-                <li><a href="../HTML/politicadeprivacidad.html"class="button">Política de privacidad</a></li>
-            </ul>
-        </div>
-            <div class="col-der">
-            <ul class="menu">
-                <li><a href="#"class="button">Mi pedido</a></li>
-                <li><a href="..//HTML/login.html"class="button">Cerrar sesión</a></li>
-            </ul>
+        <div id="menu">
         </div>
         </nav>
     
-<main>
+<main class="container">
 
     <h1>Maquetas en 3D con garantía</h1>
     <p>Consulta el amplio catálogo de productos 3DREAMS</p>
@@ -59,7 +52,7 @@
     
 </main>
 
-<section>
+<section class="container">
     <h3>Testimonios de clientes</h3>
     <div>
       <p>
@@ -70,7 +63,7 @@
     </div>
   </section>    
 
-<section>
+<section class="container">
 
     <div>
         <img src="../assets/images//pago seguro.png" width="40"/>
@@ -106,7 +99,7 @@
 
 </section>
 
-<footer>
+<footer class="container">
 
     <div>
         <img src="../assets/images/logo.jpg" alt="logo" width="50px" />
@@ -150,6 +143,6 @@
 
 </footer>
 
-    
+<script src="../JS/garantia.js"></script>
 </body>
 </html>
