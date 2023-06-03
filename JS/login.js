@@ -9,7 +9,7 @@ function inicializar() {
 
   const menu = new Menu([
     { url: "producto.html", label: "Productos" },
-    { url: "quienesomos.html", label: "Que hacemos" },
+    { url: "quienesomos.html", label: "Equipo" },
     { url: "garantia.html", label: "Garantía" },
     { url: "#", label: "Mi pedido" },
     { url: "login.html", label: "Cerrar sesión" },
@@ -20,12 +20,13 @@ function inicializar() {
 // Es una instancia a un nuevo formulario
 
 loginForm = new LoginForm();
+registrationForm = new RegistrationForm();
 
 // Es la función de renderizado del formulario de login
   loginForm.render();
-}
+  registrationForm.render();
 
-// cierre del evento inicializar
+} // cierre del evento inicializar
 
 function LoginForm(){
 this.render = function (){
@@ -40,6 +41,7 @@ this.render = function (){
   `;
   }; // cierre del método de renderizado del formulario login
 
+  
   // Método para loguearse
 
   this.login = function () {
@@ -78,6 +80,73 @@ this.render = function (){
   } // cierre del método para loguearse "login"
 } // cierre de la clase LoginForm
 
+function RegistrationForm(){
+ (this.render = function (){
+  const registrationFormDiv = document.getElementById("registration-form");
+  registrationFormDiv.innerHTML = 
+  `
+  <form> 
+    <h3>Regístrate</h3>
+    <p>Crea tu cuenta en 3DREAMS para guardar tus progresos.</p>
+    <input type="name" id="name" name="nombre" placeholder="Nombre"/>
+        <input type="surname" id="surname" name="apellidos" placeholder="Apellidos"/>
+        <input type="text" required id="email" name="email" placeholder="Escribe tu e-mail"/>
+        <input type="password" id="password1" name="contraseña" placeholder="Contraseña"/>
+        <input type="password" id="password2" name="contraseña" placeholder="Repite tu contraseña"/>
+        <button class="button" onclick = "registrationForm.register()" id="btn" >Registrarme</button>
+    </form> 
+    `;
+    const divButton = document.getElementById("btn");
+    divButton.addEventListener("click", this.register);
+ }),  // cierre del método renderizado-impresión
+      // el método de recogida de datos en la ventana
+
+ (this.register = function (){
+      const name = document.getElementById("name").value;
+      const surname = document.getElementById("surname").value;
+      const email = document.getElementById("email").value;
+      const password1 = document.getElementById("password1").value;
+      const password2 = document.getElementById("password2").value;
+      const divContainer = document.getElementById("registration-form");
+
+      const local = window.localStorage;
+
+      // En esta linea se hacen los siguientes pasos:
+      // local.getItem captura de los usuarios registrados en cadena de texto string
+      // JSON.parse convierte la cadena de texto en un objeto de javascript
+      // si la tablaUsers está vacía utiliza un array vacío
+      // lo guarda todo temporalmente en la variable users
+
+      let tablaUsers = JSON.parse(local.getItem("tablaUsers")) || [];
+
+      // let tablaUsersDeLocalStorageEnString = local.getItem("tablaUsers");
+      // let tablaUsersEnObjetoJavascript = JSON.parse(tablaUsersDeLocalStorageEnString);
+      // let tablaUsers;
+      // if (tablaUsersEnObjetoJavascript) {
+      //     tablaUsers = tablaUsersEnObjetoJavascript;
+      // } else {
+      //     tablaUsers = [];
+      // }
+
+      // condicionales para verificar los datos introducidos por ventana
+
+      // condicionales de respuesta al interactuar con el visitante
+      // declaro la variable usuario repetido para que la compruebe en
+      // un bucle que recorra el array de objetos
+
+      let usuarioRepetido = false;
+      for (let i=0; i< tablaUsers.length; i++){
+        if(tablaUsers[i].email === email){
+          usuarioRepetido = true;
+        }
+      };
+
+      if(usuarioRepetido){
+        const userRepeat  = document.getElementById("regustration-failed")
+
+      }
+ })
+}
 
 function Menu(links) {
   this.links = links;
@@ -88,7 +157,7 @@ function Menu(links) {
                   <div class="col-izq">
                       <ul class="menu">
                           <li><a href="..//HTML/producto.html">Productos</a></li>
-                          <li><a href="..//HTML/quienesomos.html">Quienes somos</a></li>
+                          <li><a href="..//HTML/quienesomos.html">Equipo</a></li>
                           <li><a href="../HTML/garantia.html">Garantía</a></li>
                           </ul>
                   </div>

@@ -3,7 +3,7 @@ function inicializar() {
 
   const menu = new Menu([
     { url: "producto.html", label: "Productos" },
-    { url: "quienesomos.html", label: "Que hacemos" },
+    { url: "quienesomos.html", label: "Equipo" },
     { url: "garantia.html", label: "Garantía" },
     { url: "#", label: "Mi pedido" },
     { url: "login.html", label: "Cerrar sesión" },
@@ -21,7 +21,7 @@ function Menu(links) {
                   <div class="col-izq">
                       <ul class="menu">
                           <li><a href="..//HTML/producto.html">Productos</a></li>
-                          <li><a href="..//HTML/quienesomos.html">Quienes somos</a></li>
+                          <li><a href="..//HTML/quienesomos.html">Equipo</a></li>
                           <li><a href="../HTML/garantia.html">Garantía</a></li>
                           </ul>
                   </div>
