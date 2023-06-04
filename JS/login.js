@@ -71,16 +71,17 @@ this.render = function (){
       console.log("usuario logueado");
       divLogin.innerHTML = `Ya puedes navegar y guardar tus cambios.`;
       local.setItem("usuarioLogueado", JSON.stringify(usuarioRegistrado));
-      // window.location = "index.html";
       }
       else if (password !== usuarioRegistrado.password){
-        console.log("unknown user");
+        console.log("contraseña desconocida");
         const emailUnknown = document.getElementById("login-failed");
         emailUnknown.innerHTML = `Contraseña incorrecta. Inténtalo de nuevo.`
       }
     } // cierre de la verificación de contraseña
     else {
-      console.log('usuario no existe, mostrar error');
+        console.log("contraseña no existe");
+        const emailUnknown = document.getElementById("login-failed");
+        emailUnknown.innerHTML = `La contraseña no existe. Inténtelo de nuevo.`
     }
   } // cierre del método para loguearse "login"
 } // cierre de la clase LoginForm
@@ -151,7 +152,9 @@ function RegistrationForm(){
       else if(password1 === password2){
         console.log("password is ok");
       divRegister.innerHTML = `El registro de ${name} se ha completado. Ya puedes loguearte.`;
-      // window.location = "index.html";  // enlace tras el registro que me lleve a el index
+      window.location = "index.html";  
+      // enlace tras el registro que me lleve a el index
+      
       // Meto en el array los datos de registro introducidos por el visitante
       tablaUsers.push(
         {
