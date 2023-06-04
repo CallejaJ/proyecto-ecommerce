@@ -57,6 +57,10 @@ img {
   color: var(--principal);
 }
 
+.error-color {
+  color: var(--error);
+}
+
 /* Tipografía */
 
 /* 
@@ -252,7 +256,7 @@ asegúrate que el proceso de compra del carrito se ve como en el diseño.
 /* Input */
 
 form {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 16px;
 }

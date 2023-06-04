@@ -37,7 +37,7 @@ this.render = function (){
         <p>Accede con tus datos anteriores</p>
         <input type="email" id="email" name="email" placeholder="E-mail"/>
         <input type="password" id="password" name="contraseña" placeholder="Contraseña"/>
-        <button class="button" onclick = "loginForm.login()">Iniciar sesión</button>
+        <button class="button" onclick = "loginForm.login()" id="btn">Iniciar sesión</button>
   `;
   }; // cierre del método de renderizado del formulario login
 
@@ -49,7 +49,7 @@ this.render = function (){
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const divContainer = document.getElementById("formulario-login");
+    const divLogin = document.getElementById("formulario-login");
 
     let usuarioRegistrado = null;
     const local = window.localStorage;
@@ -68,6 +68,7 @@ this.render = function (){
       if(password == usuarioRegistrado.password){
       // happy path 
       console.log("usuario logueado");
+      divLogin.innerHTML = `Ya puedes navegar y guardar tus cambios.`;
       local.setItem("usuarioLogueado", JSON.stringify(usuarioRegistrado));
       window.location = "index.html";
       }
@@ -93,7 +94,7 @@ function RegistrationForm(){
         <input type="text" required id="email" name="email" placeholder="Escribe tu e-mail"/>
         <input type="password" id="password1" name="contraseña" placeholder="Contraseña"/>
         <input type="password" id="password2" name="contraseña" placeholder="Repite tu contraseña"/>
-        <button class="button" onclick = "registrationForm.register()" id="btn" >Registrarme</button>
+        <button class="button" onclick = "registrationForm.register()" id="btn">Registrarme</button>
     </form> 
     `;
     const divButton = document.getElementById("btn");
@@ -107,7 +108,7 @@ function RegistrationForm(){
       const email = document.getElementById("email").value;
       const password1 = document.getElementById("password1").value;
       const password2 = document.getElementById("password2").value;
-      const divContainer = document.getElementById("registration-form");
+      const divRegister = document.getElementById("registration-form");
 
       const local = window.localStorage;
 
@@ -142,11 +143,35 @@ function RegistrationForm(){
       };
 
       if(usuarioRepetido){
-        const userRepeat  = document.getElementById("regustration-failed")
-
+        const userRepeat  = document.getElementById("registration-failed");
+        userRepeat.innerHTML = `${name} aparece en nuestro registro. Prueba a loguearte.`;
       }
- })
-}
+      else if(password1 === password2){
+        console.log("password is ok");
+      divRegister.innerHTML = `El registro de ${name} se ha completado.`;
+      window.location = "index.html";  // enlace tras el registro que me lleve a el index
+      // Meto en el array los datos de registro introducidos por el visitante
+      tablaUsers.push(
+        {
+          nombre: name,
+          apellidos: surname,
+          email: email,
+          password: password1,
+        }
+        );
+        // almaceno en local el objeto
+        local.setItem("tablaUsers", JSON.stringify(tablaUsers));
+      } // cierre del happy path
+      else if(password1 !== password2){
+        console.log("different passwords");
+        let failPass = document.getElementById("registration-failed");
+        failPass.innerHTML = `Las contraseñas no son iguales, inténtalo de nuevo.`;
+      }
+        
+      } // cierre de la función de registro
+      ) // cierre del método de registro
+ } // cierre de la Clase formulario de registro
+
 
 function Menu(links) {
   this.links = links;
