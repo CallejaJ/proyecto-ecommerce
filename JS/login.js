@@ -1,5 +1,6 @@
 // Declaro las variables y así son accesibles globalmente 
 
+    let menu;
     let loginForm;
     let registrationForm;
 
@@ -7,7 +8,7 @@
 function inicializar() {
   console.log("onload se ha llamado");
 
-  const menu = new Menu([
+    menu = new Menu([
     { url: "producto.html", label: "Productos" },
     { url: "quienesomos.html", label: "Equipo" },
     { url: "garantia.html", label: "Garantía" },
@@ -35,9 +36,9 @@ this.render = function (){
   
         <h3>Iniciar sesion</h3>
         <p>Accede con tus datos anteriores</p>
-        <input type="email" id="email" name="email" placeholder="E-mail"/>
+        <input type="email" id="emailLogin" name="email" placeholder="E-mail"/>
         <input type="password" id="password" name="contraseña" placeholder="Contraseña"/>
-        <button class="button" onclick = "loginForm.login()" id="btn">Iniciar sesión</button>
+        <button class="button" onclick="console.log('hola jorge'); loginForm.login()" id="btn">Iniciar sesión</button>
   `;
   }; // cierre del método de renderizado del formulario login
 
@@ -47,14 +48,14 @@ this.render = function (){
   this.login = function () {
     // variables locales del método login:
 
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("emailLogin").value;
     const password = document.getElementById("password").value;
     const divLogin = document.getElementById("formulario-login");
 
     let usuarioRegistrado = null;
     const local = window.localStorage;
 
-    let tablaUsers = JSON.parse(local.getItem("tablaUsers"));
+    let tablaUsers = JSON.parse(local.getItem("tablaUsers")) || [];
     
     
     for(let i=0; i< tablaUsers.length; i++){
@@ -70,7 +71,7 @@ this.render = function (){
       console.log("usuario logueado");
       divLogin.innerHTML = `Ya puedes navegar y guardar tus cambios.`;
       local.setItem("usuarioLogueado", JSON.stringify(usuarioRegistrado));
-      window.location = "index.html";
+      // window.location = "index.html";
       }
       else if (password !== usuarioRegistrado.password){
         console.log("unknown user");
@@ -78,34 +79,35 @@ this.render = function (){
         emailUnknown.innerHTML = `Contraseña incorrecta. Inténtalo de nuevo.`
       }
     } // cierre de la verificación de contraseña
+    else {
+      console.log('usuario no existe, mostrar error');
+    }
   } // cierre del método para loguearse "login"
 } // cierre de la clase LoginForm
 
 function RegistrationForm(){
- (this.render = function (){
+ this.render = function (){
   const registrationFormDiv = document.getElementById("registration-form");
   registrationFormDiv.innerHTML = 
   `
   <form> 
     <h3>Regístrate</h3>
     <p>Crea tu cuenta en 3DREAMS para guardar tus progresos.</p>
-    <input type="name" id="name" name="nombre" placeholder="Nombre"/>
+        <input type="name" id="name" name="nombre" placeholder="Nombre"/>
         <input type="surname" id="surname" name="apellidos" placeholder="Apellidos"/>
-        <input type="text" required id="email" name="email" placeholder="Escribe tu e-mail"/>
+        <input type="text" required id="emailReg" name="email" placeholder="Escribe tu e-mail"/>
         <input type="password" id="password1" name="contraseña" placeholder="Contraseña"/>
         <input type="password" id="password2" name="contraseña" placeholder="Repite tu contraseña"/>
-        <button class="button" onclick = "registrationForm.register()" id="btn">Registrarme</button>
+        <button class="button" onclick = "console.log('hola jorge 2'); registrationForm.register()" id="btnreg">Registrarme</button>
     </form> 
     `;
-    const divButton = document.getElementById("btn");
-    divButton.addEventListener("click", this.register);
- }),  // cierre del método renderizado-impresión
+ },  // cierre del método renderizado-impresión
       // el método de recogida de datos en la ventana
 
- (this.register = function (){
+ this.register = function (){
       const name = document.getElementById("name").value;
       const surname = document.getElementById("surname").value;
-      const email = document.getElementById("email").value;
+      const email = document.getElementById("emailReg").value;
       const password1 = document.getElementById("password1").value;
       const password2 = document.getElementById("password2").value;
       const divRegister = document.getElementById("registration-form");
@@ -148,8 +150,8 @@ function RegistrationForm(){
       }
       else if(password1 === password2){
         console.log("password is ok");
-      divRegister.innerHTML = `El registro de ${name} se ha completado.`;
-      window.location = "index.html";  // enlace tras el registro que me lleve a el index
+      divRegister.innerHTML = `El registro de ${name} se ha completado. Ya puedes loguearte.`;
+      // window.location = "index.html";  // enlace tras el registro que me lleve a el index
       // Meto en el array los datos de registro introducidos por el visitante
       tablaUsers.push(
         {
@@ -169,7 +171,7 @@ function RegistrationForm(){
       }
         
       } // cierre de la función de registro
-      ) // cierre del método de registro
+       // cierre del método de registro
  } // cierre de la Clase formulario de registro
 
 
@@ -189,8 +191,12 @@ function Menu(links) {
                   <div class="col-der">
                       <ul class="menu">
                           <li><a href="#">Mi pedido</a></li>
-                          <li><a href="..//HTML/login.html">Cerrar sesión</a></li>
+                          <li><a href="..//HTML/login.html" onclick="menu.cerrarSesion()">Cerrar sesión</a></li>
                       </ul>
                   </div>`;
   };
+
+  this.cerrarSesion = function () {
+    console.log('cerrando sesion como un pro');
+  }
 }
