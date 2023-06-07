@@ -47,6 +47,8 @@ body.dark {
   --blanco: hsl(var(--hue)21% 20% / 1);
 }
 
+footer {}
+
 img {
   max-width: 100%;
 }
